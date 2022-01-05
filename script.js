@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Google Forms Pseudo 100%
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  Tricks your teacher into thinking you got a 100% on the assignment. Send teacher a screenshot or video of the results. >_<
 // @author       GSRHackZ
 // @match        https://docs.google.com/forms/*
@@ -35,10 +35,10 @@ function fixGrade(){
         quests[i].style.color="#1e8e3e";
     }
 
-    let answers = document.getElementsByClassName("freebirdFormviewerViewItemsTextCorrectAnswer");
+    let answers = document.getElementsByClassName("freebirdFormviewerViewItemsTextCorrectAnswerBox");
     let collected = [];
     for(let i=0;i<answers.length;i++){
-        collected.push(answers[i].innerText);
+        collected.push(answers[i].children[0].innerText);
     }
     let proof = document.getElementsByClassName("freebirdFormviewerViewItemsItemGradingCorrectAnswerBox");
     for(let i=0;i<proof.length;i++){
